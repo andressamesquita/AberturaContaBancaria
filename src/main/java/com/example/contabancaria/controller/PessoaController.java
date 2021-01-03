@@ -2,6 +2,8 @@ package com.example.contabancaria.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.contabancaria.datasource.model.Pessoa;
 import com.example.contabancaria.exception.PessoaNotFoundException;
-import com.example.contabancaria.resource.model.PessoaResource;
+import com.example.contabancaria.resource.model.PessoaDTO;
 import com.example.contabancaria.service.BuscarPessoaPorIdServiceImp;
 import com.example.contabancaria.service.BuscarPessoasServiceImpl;
 import com.example.contabancaria.service.CadastroPessoaService;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/")
 public class PessoaController {
 
 	@Autowired
@@ -37,19 +39,19 @@ public class PessoaController {
 		return serviceBuscar.buscarTodasAsPessoas();
 	}
 
-	@GetMapping(path = "/pessoa/id/{id}")
+	@GetMapping(path = "/pessoas/{id}")
 	public Pessoa buscarPessoasPorId(@PathVariable(name = "id", required = true) Long id)
 			throws PessoaNotFoundException {
 		return serviceBuscarPorId.buscarPorId(id);
 	}
 
-	@PostMapping(path = "/pessoa/save")
-	public void salvarPessoa(@RequestBody PessoaResource pessoaResource) {
-		Pessoa pessoa = pessoaResource.toModel();
+	@PostMapping(path = "/pessoas")
+	public void salvarPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) {
+		Pessoa pessoa = pessoaDTO.toModel();
 		cadastroPessoaService.cadastrar(pessoa);
 	}
 
-	@DeleteMapping(path = "/pessoa/delete/{id}")
+	@DeleteMapping(path = "/pessoas/{id}")
 	public void deletePessoa(@PathVariable(name = "id", required = true) Long id) 
 			throws PessoaNotFoundException {
 		serviceBuscarPorId.deletarPorId(id);
