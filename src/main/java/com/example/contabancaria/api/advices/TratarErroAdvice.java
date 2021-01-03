@@ -49,7 +49,23 @@ public class TratarErroAdvice {
 
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(hashMap);
 	}
+	
+	
 
+	@ExceptionHandler
+	public ResponseEntity<Map<String, String>> tratarErroIllegalArgumentException(
+			IllegalArgumentException exception) {
+
+		String message = exception.getMessage();
+
+		Map<String, String> hashMap = new HashMap<String, String>();
+
+		hashMap.put("campo-duplicado", message);
+
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(hashMap);
+	}
+	
+	
 	private String obterMensagemDeErro(ObjectError error) {
 		return messageSource.getMessage(error, LocaleContextHolder.getLocale());
 	}
