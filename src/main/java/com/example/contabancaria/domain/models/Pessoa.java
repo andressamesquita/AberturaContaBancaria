@@ -2,25 +2,16 @@ package com.example.contabancaria.domain.models;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public class Pessoa {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
+	
+	private Long idTitular;
 	private String nome;
 	private String email;
 	private String cpf;
 	private LocalDate dataNascimento;
-
-//	@OneToMany
-//	private List<Conta> conta;
 
 	public Pessoa() {
 
@@ -33,8 +24,8 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdTitular() {
+		return idTitular;
 	}
 
 	public String getNome() {
@@ -52,7 +43,5 @@ public class Pessoa {
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
-
-	
 
 }
