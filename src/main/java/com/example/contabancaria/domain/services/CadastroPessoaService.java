@@ -1,10 +1,10 @@
-package com.example.contabancaria.service;
+package com.example.contabancaria.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.contabancaria.datasource.model.Pessoa;
-import com.example.contabancaria.repository.PessoaRepository;
+import com.example.contabancaria.domain.models.Pessoa;
+import com.example.contabancaria.domain.repositories.PessoaRepository;
 
 @Service
 public class CadastroPessoaService {

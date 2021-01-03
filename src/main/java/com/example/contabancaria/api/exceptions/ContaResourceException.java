@@ -1,4 +1,4 @@
-package com.example.contabancaria.exception;
+package com.example.contabancaria.api.exceptions;
 
 public class ContaResourceException extends Exception{
 

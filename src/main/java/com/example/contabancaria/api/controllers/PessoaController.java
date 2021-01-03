@@ -1,4 +1,4 @@
-package com.example.contabancaria.controller;
+package com.example.contabancaria.api.controllers;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.contabancaria.datasource.model.Pessoa;
-import com.example.contabancaria.exception.PessoaNotFoundException;
-import com.example.contabancaria.resource.model.PessoaDTO;
-import com.example.contabancaria.service.BuscarPessoaPorIdServiceImp;
-import com.example.contabancaria.service.BuscarPessoasServiceImpl;
-import com.example.contabancaria.service.CadastroPessoaService;
+import com.example.contabancaria.api.dtos.requests.PessoaDTOrequest;
+import com.example.contabancaria.api.exceptions.PessoaNotFoundException;
+import com.example.contabancaria.domain.models.Pessoa;
+import com.example.contabancaria.domain.services.BuscarPessoaPorIdServiceImp;
+import com.example.contabancaria.domain.services.BuscarPessoasServiceImpl;
+import com.example.contabancaria.domain.services.CadastroPessoaService;
 
 @RestController
 @RequestMapping(value = "/")
@@ -46,8 +46,8 @@ public class PessoaController {
 	}
 
 	@PostMapping(path = "/pessoas")
-	public void salvarPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) {
-		Pessoa pessoa = pessoaDTO.toModel();
+	public void salvarPessoa(@RequestBody @Valid PessoaDTOrequest pessoaDTOrequest) {
+		Pessoa pessoa = pessoaDTOrequest.toModel();
 		cadastroPessoaService.cadastrar(pessoa);
 	}
 

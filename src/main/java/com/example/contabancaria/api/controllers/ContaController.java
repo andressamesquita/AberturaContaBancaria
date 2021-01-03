@@ -1,4 +1,4 @@
-package com.example.contabancaria.controller;
+package com.example.contabancaria.api.controllers;
 
 import java.util.List;
 
@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.contabancaria.datasource.model.Conta;
-import com.example.contabancaria.datasource.model.Pessoa;
-import com.example.contabancaria.exception.ContaNotFoundException;
-
-import com.example.contabancaria.resource.model.ContaResource;
-
-import com.example.contabancaria.service.BuscarContaPorIdServiceImp;
-import com.example.contabancaria.service.BuscarContasServiceImpl;
-import com.example.contabancaria.service.CadastroContaServiceImpl;
+import com.example.contabancaria.api.dtos.requests.ContaResource;
+import com.example.contabancaria.api.exceptions.ContaNotFoundException;
+import com.example.contabancaria.domain.models.Conta;
+import com.example.contabancaria.domain.models.Pessoa;
+import com.example.contabancaria.domain.services.BuscarContaPorIdServiceImp;
+import com.example.contabancaria.domain.services.BuscarContasServiceImpl;
+import com.example.contabancaria.domain.services.CadastroContaServiceImpl;
 
 @RestController
 @RequestMapping(value = "/api")

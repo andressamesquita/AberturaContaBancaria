@@ -1,4 +1,4 @@
-package com.example.contabancaria.resource.model;
+package com.example.contabancaria.api.dtos.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

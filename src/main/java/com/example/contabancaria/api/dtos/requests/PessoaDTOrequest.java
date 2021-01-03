@@ -1,4 +1,4 @@
-package com.example.contabancaria.resource.model;
+package com.example.contabancaria.api.dtos.requests;
 
 import java.time.LocalDate;
 
@@ -7,9 +7,9 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.example.contabancaria.datasource.model.Pessoa;
+import com.example.contabancaria.domain.models.Pessoa;
 
-public class PessoaDTO {
+public class PessoaDTOrequest {
 
 	private String nome;
 
@@ -22,7 +22,7 @@ public class PessoaDTO {
 	@CPF
 	private String cpf;
 
-	public PessoaDTO(String nome, LocalDate dataNascimento, String email, String cpf) {
+	public PessoaDTOrequest(String nome, LocalDate dataNascimento, String email, String cpf) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.email = email;
@@ -35,7 +35,7 @@ public class PessoaDTO {
 	
 	@Override
 	public String toString() {
-		return "PessoaDTO [nome=" + nome + ", dataNascimento=" + dataNascimento + ", email=" + email + ", cpf=" + cpf + "]";
+		return "PessoaDTOrequest [nome=" + nome + ", dataNascimento=" + dataNascimento + ", email=" + email + ", cpf=" + cpf + "]";
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.example.contabancaria.datasource.model;
+package com.example.contabancaria.domain.models;
 
 import java.io.Serializable;
 

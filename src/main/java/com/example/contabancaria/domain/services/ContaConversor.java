@@ -1,10 +1,10 @@
-package com.example.contabancaria.service;
+package com.example.contabancaria.domain.services;
 import org.springframework.stereotype.Component;
 
-import com.example.contabancaria.datasource.model.Conta;
-import com.example.contabancaria.datasource.model.Pessoa;
-import com.example.contabancaria.exception.ContaResourceException;
-import com.example.contabancaria.resource.model.ContaResource;
+import com.example.contabancaria.api.dtos.requests.ContaResource;
+import com.example.contabancaria.api.exceptions.ContaResourceException;
+import com.example.contabancaria.domain.models.Conta;
+import com.example.contabancaria.domain.models.Pessoa;
 
 @Component
 public class ContaConversor {
